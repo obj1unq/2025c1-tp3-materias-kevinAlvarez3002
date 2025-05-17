@@ -51,9 +51,9 @@ No se requiere que el sistema conteste nada con respecto al resultado de la insc
     * Los estudiantes inscriptos a una materia dada.
     * Los estudiantes en lista de espera para una materia dada.
 
-8. Brindar información útil para une estudiante, específicamente: las materias en las que está inscripto, las materias en las que quedó en lista de espera. Para esto, usar la lista de todas las materias de las carreras que cursa, resuelto en un punto anterior.
+9. Brindar información útil para un estudiante, específicamente: las materias en las que está inscripto, las materias en las que quedó en lista de espera. Para esto, usar la lista de todas las materias de las carreras que cursa, resuelto en un punto anterior.
 
-9. Más información sobre une estudiante: dada una carrera, conocer todas las materias de esa carrera a las que se puede inscribir. Sólo vale si el estudiante está cursando esa carrera.  
+10. Más información sobre une estudiante: dada una carrera, conocer todas las materias de esa carrera a las que se puede inscribir. Sólo vale si el estudiante está cursando esa carrera.  
 
 # Tests 
 Suponiendo que

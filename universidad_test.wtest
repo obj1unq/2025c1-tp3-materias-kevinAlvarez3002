@@ -1,0 +1,37 @@
+import universidad.*
+describe "tests de Inscripción a materias" {
+
+    method initialize() {
+        //materias
+        //de programacion
+        const elementosDeProgramacion = new Materia()
+        const matematica1=new Materia()
+        const objetos1=new Materia()
+        const objetos2 =new Materia(materiasRequisito =#{objetos1, matematica1})
+        const basesDeDatos= new Materia()
+        const objetos3=new Materia(materiasRequisito=#{objetos2,basesDeDatos})
+        const programacionConcurrente=new Materia(materiasRequisito=#{objetos1,basesDeDatos})//lo agrego ya que se nombra en los test
+        const trabajoFinal=new Materia()
+        //de medicina
+        const quimica =new Materia()
+        const biologia1=new Materia()
+        const biologia2=new Materia(materiasRequisito=#{biologia2})
+        const anatomiaGeneral=new Materia()
+        //de derecho
+        const latin = new Materia()
+        const derechoRomano= new Materia()
+        const historiaDelDerechoArgentino= new Materia()
+        const derechoPenal1= new Materia()
+        const derechoPenal2 = new Materia()
+      //carreras
+      const programacion= new Carrera()
+      const medicina = new Carrera()
+      const derecho = new Carrera()
+      //estudiantes
+      const roque = new Estudiante(carrerasInscriptas=[programacion,medicina],cursada={new MateriaAprobada(materia=elementosDeProgramacion ,nota=7),new MateriaAprobada(materia=matematica1,nota=7),new MateriaAprobada(materia=objetos1,nota=7),new MateriaAprobada(materia=objetos1,nota=7)})
+
+    }
+  test "description" {
+
+  }
+}
