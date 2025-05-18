@@ -1,37 +1,171 @@
 import universidad.*
+
 describe "tests de Inscripción a materias" {
-
-    method initialize() {
-        //materias
-        //de programacion
-        const elementosDeProgramacion = new Materia()
-        const matematica1=new Materia()
-        const objetos1=new Materia()
-        const objetos2 =new Materia(materiasRequisito =#{objetos1, matematica1})
-        const basesDeDatos= new Materia()
-        const objetos3=new Materia(materiasRequisito=#{objetos2,basesDeDatos})
-        const programacionConcurrente=new Materia(materiasRequisito=#{objetos1,basesDeDatos})//lo agrego ya que se nombra en los test
-        const trabajoFinal=new Materia()
-        //de medicina
-        const quimica =new Materia()
-        const biologia1=new Materia()
-        const biologia2=new Materia(materiasRequisito=#{biologia2})
-        const anatomiaGeneral=new Materia()
-        //de derecho
-        const latin = new Materia()
-        const derechoRomano= new Materia()
-        const historiaDelDerechoArgentino= new Materia()
-        const derechoPenal1= new Materia()
-        const derechoPenal2 = new Materia()
-      //carreras
-      const programacion= new Carrera()
-      const medicina = new Carrera()
-      const derecho = new Carrera()
-      //estudiantes
-      const roque = new Estudiante(carrerasInscriptas=[programacion,medicina],cursada={new MateriaAprobada(materia=elementosDeProgramacion ,nota=7),new MateriaAprobada(materia=matematica1,nota=7),new MateriaAprobada(materia=objetos1,nota=7),new MateriaAprobada(materia=objetos1,nota=7)})
-
-    }
-  test "description" {
-
+  //materias
+  //de programacion
+  var elementosDeProgramacion
+  var matematica1
+  var objetos1
+  var objetos2
+  var basesDeDatos
+  var objetos3
+  var programacionConcurrente //lo agrego ya que se nombra en los test
+  var trabajoFinal
+  //de medicina
+  var quimica
+  var biologia1
+  var biologia2
+  var anatomiaGeneral
+  //de derecho
+  var latin
+  var derechoRomano
+  var historiaDelDerechoArgentino
+  var derechoPenal1
+  var derechoPenal2
+  //carreras
+  var programacion
+  var medicina
+  var derecho
+  //estudiantes
+  var roque
+  var luisa
+  var romina
+  var alicia
+  var ana
+  
+  method initialize() {
+    //materias
+    //de programacion
+    elementosDeProgramacion = new Materia()
+    matematica1 = new Materia()
+    objetos1 = new Materia()
+    objetos2 = new Materia(materiasRequisito = #{objetos1, matematica1},cupo=3)//asumi que el cupo seria de 3 debido a que para los test se requeria
+    basesDeDatos = new Materia()
+    objetos3 = new Materia(materiasRequisito = #{objetos2, basesDeDatos})
+    programacionConcurrente = new Materia(
+      materiasRequisito = #{objetos1, basesDeDatos}
+    ) //lo agrego ya que se nombra en los test
+    trabajoFinal = new Materia(materiasRequisito=#{programacionConcurrente,objetos3})//le agregue requisito por que segun se menciona el los test no deberia aparecer que roque pueda cursarlo
+    
+    
+    //de medicina
+    quimica = new Materia()
+    biologia1 = new Materia()
+    biologia2 = new Materia(materiasRequisito = #{biologia1})
+    anatomiaGeneral = new Materia(materiasRequisito = #{biologia2})//asumi igual que la vez anterior por situacion similar
+    
+    
+    //de derecho
+    latin = new Materia()
+    derechoRomano = new Materia()
+    historiaDelDerechoArgentino = new Materia()
+    derechoPenal1 = new Materia()
+    derechoPenal2 = new Materia()
+    
+    
+    //carreras
+    programacion = new Carrera(
+      materias = #{
+        elementosDeProgramacion,
+        matematica1,
+        objetos1,
+        objetos2,
+        objetos3,
+        basesDeDatos,
+        objetos3,
+        programacionConcurrente,
+        trabajoFinal
+      }
+    )
+    medicina = new Carrera(
+      materias = #{quimica, biologia1, biologia2, anatomiaGeneral}
+    )
+    derecho = new Carrera(
+      materias = #{
+        latin,
+        derechoRomano,
+        historiaDelDerechoArgentino,
+        derechoPenal1,
+        derechoPenal2
+      }
+    )
+    
+    
+    //estudiantes
+    roque = new Estudiante(
+      carrerasInscriptas = [programacion, medicina],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7),
+        new MateriaAprobada(materia = matematica1, nota = 7),
+        new MateriaAprobada(materia = objetos1, nota = 7),
+        new MateriaAprobada(materia = basesDeDatos, nota = 7),
+        new MateriaAprobada(materia = quimica, nota = 7),
+        new MateriaAprobada(materia = biologia1, nota = 7)
+      }
+    )
+    luisa = new Estudiante(
+      carrerasInscriptas = [programacion],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7),
+        new MateriaAprobada(materia = matematica1, nota = 7),
+        new MateriaAprobada(materia = objetos1, nota = 7)
+      }
+    )
+    romina = new Estudiante(
+      carrerasInscriptas = [programacion],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7),
+        new MateriaAprobada(materia = matematica1, nota = 7),
+        new MateriaAprobada(materia = objetos1, nota = 7)
+      }
+    )
+    alicia == new Estudiante(
+      carrerasInscriptas = [programacion],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7),
+        new MateriaAprobada(materia = matematica1, nota = 7),
+        new MateriaAprobada(materia = objetos1, nota = 7)
+      }
+    )
+    alicia = new Estudiante(
+      carrerasInscriptas = [programacion],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7),
+        new MateriaAprobada(materia = matematica1, nota = 7),
+        new MateriaAprobada(materia = objetos1, nota = 7)
+      }
+    )
+    ana = new Estudiante(
+      carrerasInscriptas = [programacion],
+      cursada = #{
+        new MateriaAprobada(materia = elementosDeProgramacion, nota = 7)
+      }
+    )
+  }
+  
+  test "Roque puede inscribirse en Objetos 2, pero no en Objetos 3 (porque le falta Objetos 2) ni en Objetos 1 (porque ya la tiene aprobada)" {
+    assert.that(roque.puedeCursar(objetos2))
+    assert.notThat(roque.puedeCursar(objetos3))
+    assert.notThat(roque.puedeCursar(objetos1))
+  }
+  test "* Roque puede inscribirse: en Programación, en Objetos 2 y Programación Concurrente; en Medicina, en Biología 2." {
+    assert.equals(roque.materiasQueSePuedeIncribir(programacion).asSet(), #{objetos2,programacionConcurrente})
+    assert.equals(roque.materiasQueSePuedeIncribir(medicina).asSet(),#{biologia2} )
+  }
+  test "* Si se inscriben, en este orden, Luisa, Romina, Alicia y Roque en Objetos 2, entonces las tres primeras quedan confirmadas, y Roque queda en lista de espera." {
+    objetos2.inscribir(luisa)
+    objetos2.inscribir(romina)
+    objetos2.inscribir(alicia)
+    objetos2.inscribir(roque)
+    assert.equals(objetos2.inscriptos(), #{luisa,romina,alicia})
+    assert.that(objetos2.quedoEnEspera(roque))
+  }
+  test "* Si se inscriben, en este orden, Luisa, Romina, Alicia y Roque en Objetos 2,Si después se da de baja Romina en Objetos 2, entonces Roque pasa a tener la inscripción confirmada en esa materia." {
+    objetos2.inscribir(luisa)
+    objetos2.inscribir(romina)
+    objetos2.inscribir(alicia)
+    objetos2.inscribir(roque)
+    objetos2.darDeBaja(romina)
+    assert.that(objetos2.quedoInscripto(roque))
   }
 }

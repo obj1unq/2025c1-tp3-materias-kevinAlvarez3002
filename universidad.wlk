@@ -19,7 +19,7 @@ class Materia {
   
   method inscriptosOEnEspera() = inscriptos + enEspera
   
-  method esaInscriptoOEnEspera(
+  method estaInscriptoOEnEspera(
     estudiante
   ) = self.inscriptosOEnEspera().contains(estudiante)
   
@@ -91,11 +91,11 @@ class Estudiante {
     materia
   ) = self.materiasDeCarrerasInscriptas().contains(materia)
   
-  method puedeCursar(materia) = ((materia.cumpleRequisito(
+  method puedeCursar(materia) =materia.cumpleRequisito(
     self
   ) && self.esMateriaDeCarrerasInscriptas(
     materia
-  )) && (not materia.esaInscriptoOEnEspera(self))) && (not self.aprobo(materia))
+  ) && (not materia.estaInscriptoOEnEspera(self)) && (not self.aprobo(materia))
   
   method materiasDondeQuedoInscripto() = self.materiasDeCarrerasInscriptas().filter(
     { materia => materia.quedoInscripto(self) }
