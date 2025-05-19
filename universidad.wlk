@@ -68,8 +68,9 @@ class Estudiante {
   }
   
   method validarAprobar(materia) {
-    if (self.aprobo(materia)) self.error("ya aprobe esta materia")
+    if (self.puedeAprobar(materia)) self.error("ya aprobe esta materia")
   }
+  method puedeAprobar(materia) =self.aprobo(materia)&&self.esMateriaDeCarrerasInscriptas(materia)
   
   method cantidadAprobadas() = cursada.size()
   
