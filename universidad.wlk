@@ -37,9 +37,9 @@ class Materia {
         "el estudiante no cumple los requisitos o ya esta inscripto en la materia "
       )
   }
-  
+  method hayCupo() = inscriptos.size() >= cupo
   method aListaDeEsperaOInscripto(estudiante) {
-    if (inscriptos.size() >= cupo) enEspera.add(estudiante)
+    if (self.hayCupo()) enEspera.add(estudiante)
     else inscriptos.add(estudiante)
   }
   
@@ -49,7 +49,7 @@ class Materia {
   }
   
   method inscribirEnEsperaDeExistir() {
-    if (not enEspera.isEmpty()) {
+    if ((not enEspera.isEmpty())&&self.hayCupo()) {
       inscriptos.add(self.primeroEnEspera())
       enEspera.remove(self.primeroEnEspera())
     }
