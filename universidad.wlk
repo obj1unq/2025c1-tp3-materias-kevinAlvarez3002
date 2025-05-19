@@ -114,5 +114,5 @@ class Estudiante {
     self.validarMateriasQueSePuedeIncribir(carrera)//lo valide por que en el enunciado dice que solo vale si el estudiante cursa la carrera(aunque no da error ni informacion erronea sin la validacion)
    return carrera.materias().filter(
     { materia => self.puedeCursar(materia) }
-  )}
+  ).asSet()}
 }

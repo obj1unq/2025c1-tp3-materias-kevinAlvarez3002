@@ -149,8 +149,8 @@ describe "tests de Inscripción a materias" {
     assert.notThat(roque.puedeCursar(objetos1))
   }
   test "* Roque puede inscribirse: en Programación, en Objetos 2 y Programación Concurrente; en Medicina, en Biología 2." {
-    assert.equals(roque.materiasQueSePuedeIncribir(programacion).asSet(), #{objetos2,programacionConcurrente})
-    assert.equals(roque.materiasQueSePuedeIncribir(medicina).asSet(),#{biologia2} )
+    assert.equals(roque.materiasQueSePuedeIncribir(programacion), #{objetos2,programacionConcurrente})
+    assert.equals(roque.materiasQueSePuedeIncribir(medicina),#{biologia2} )
   }
   test "* Si se inscriben, en este orden, Luisa, Romina, Alicia y Roque en Objetos 2, entonces las tres primeras quedan confirmadas, y Roque queda en lista de espera." {
     objetos2.inscribir(luisa)
